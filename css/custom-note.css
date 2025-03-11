@@ -1,0 +1,8 @@
+.md-typeset .admonition.custom-note,
+.md-typeset details.custom-note {
+    --md-admonition-border-width: 0;
+    --md-admonition-icon-border-width: 4px;
+    border-width: 0;
+    border-left-width: 4px;
+    --md-admonition-icon: var(--md-admonition-icon--note);
+}
