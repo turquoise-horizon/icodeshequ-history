@@ -1,11 +1,16 @@
+/* 隐藏标题但保留锚点功能 */
 .hidden-title {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
+    position: relative !important; /* 改为相对定位 */
+    height: 0 !important;
+    padding-top: 2.7rem !important;    /* 等于导航栏高度 */
+    margin-top: -2.7rem !important;    /* 负值抵消padding */
+    visibility: hidden !important;
     overflow: hidden !important;
-    clip: rect(0,0,0,0) !important;
-    white-space: nowrap !important;
+    pointer-events: none !important;
     border: 0 !important;
+}
+
+/* 清除标题内部文本和间距 */
+.hidden-title > * {
+    display: none !important;
 }
