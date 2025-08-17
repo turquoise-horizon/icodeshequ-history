@@ -26,7 +26,9 @@ async function updateBrowseCount() {
         }
         
         const data = await response.json();
-        const browseNum = data.data.browseNum;
+
+        // 修正
+        const browseNum = data.data.browseNum - 9;
 
         // 设置成功状态样式（绿色）
         counterElement.style.color = 'green';
