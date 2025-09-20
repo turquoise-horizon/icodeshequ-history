@@ -1,16 +1,16 @@
-/* Òþ²Ø±êÌâµ«±£ÁôÃªµã¹¦ÄÜ */
+ï»¿/* éšè—æ ‡é¢˜ä½†ä¿ç•™é”šç‚¹åŠŸèƒ½ */
 .hidden-title {
-    position: relative !important; /* ¸ÄÎªÏà¶Ô¶¨Î» */
+    position: relative !important; /* æ”¹ä¸ºç›¸å¯¹å®šä½ */
     height: 0 !important;
-    padding-top: 2.7rem !important;    /* µÈÓÚµ¼º½À¸¸ß¶È */
-    margin-top: -2.7rem !important;    /* ¸ºÖµµÖÏûpadding */
+    padding-top: 2.7rem !important;    /* ç­‰äºŽå¯¼èˆªæ é«˜åº¦ */
+    margin-top: -2.7rem !important;    /* è´Ÿå€¼æŠµæ¶ˆpadding */
     visibility: hidden !important;
     overflow: hidden !important;
     pointer-events: none !important;
     border: 0 !important;
 }
 
-/* Çå³ý±êÌâÄÚ²¿ÎÄ±¾ºÍ¼ä¾à */
+/* æ¸…é™¤æ ‡é¢˜å†…éƒ¨æ–‡æœ¬å’Œé—´è· */
 .hidden-title > * {
     display: none !important;
 }
