@@ -2,27 +2,32 @@
 // 获取浏览数并更新页面显示
 async function updateBrowseCount() {
 
-    // 查找或创建显示浏览数的元素
+    // 查找显示浏览数的元素
     let counterElement = document.getElementById('browse-counter');
     if (!counterElement) {
-        counterElement = document.createElement('strong');
-        counterElement.id = 'browse-counter';
-        document.body.appendChild(counterElement);
+        // 未找到浏览数显示元素
+        return;
+    }
+
+    // 从元素属性中获取API URL
+    let apiUrl = counterElement.getAttribute('api-url');
+    if (!apiUrl) {
+        console.warn('未设置api-url属性，将使用默认值');
+        apiUrl = "https://icodeshequ.youdao.com/api/works/detail?id=674323677f004a8a94f18836d1e0ae19"
     }
 
     try {
-        
         // 刷新浏览量
-        await fetch("https://icodeshequ.youdao.com/api/works/detail?id=674323677f004a8a94f18836d1e0ae19");
+        await fetch(apiUrl);
 
-        const response = await fetch("https://icodeshequ.youdao.com/api/works/detail?id=674323677f004a8a94f18836d1e0ae19");
-        
+        const response = await fetch(apiUrl);
+
         if (!response.ok) {
             throw new Error(`HTTP错误! 错误状态: ${response.status}`);
         }
-        
-        const data = await response.json();
 
+        const data = await response.json();
+        
         // 修正
         const browseNum = data.data.browseNum - 9;
 
