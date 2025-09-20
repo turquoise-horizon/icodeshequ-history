@@ -1,5 +1,7 @@
-﻿// 获取浏览数并更新页面显示
+﻿
+// 获取浏览数并更新页面显示
 async function updateBrowseCount() {
+
     // 查找或创建显示浏览数的元素
     let counterElement = document.getElementById('browse-counter');
     if (!counterElement) {
@@ -7,19 +9,13 @@ async function updateBrowseCount() {
         counterElement.id = 'browse-counter';
         document.body.appendChild(counterElement);
     }
-    
+
     try {
         
-        // 第一个fetch请求没有使用返回值
-        await fetch('https://icodeshequ.youdao.com/api/works/detail?id=674323677f004a8a94f18836d1e0ae19', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            mode: 'cors'
-        });
+        // 刷新浏览量
+        await fetch("https://icodeshequ.youdao.com/api/works/detail?id=674323677f004a8a94f18836d1e0ae19");
 
-        const response = await fetch('https://icodeshequ.youdao.com/api/works/detail?id=674323677f004a8a94f18836d1e0ae19');
+        const response = await fetch("https://icodeshequ.youdao.com/api/works/detail?id=674323677f004a8a94f18836d1e0ae19");
         
         if (!response.ok) {
             throw new Error(`HTTP错误! 错误状态: ${response.status}`);
@@ -39,7 +35,7 @@ async function updateBrowseCount() {
         
         // 设置错误状态样式（红色）
         counterElement.style.color = 'red';
-        counterElement.textContent = '加载失败'; // 直接使用明确的中文字符串
+        counterElement.textContent = '加载失败';
     }
 }
 
