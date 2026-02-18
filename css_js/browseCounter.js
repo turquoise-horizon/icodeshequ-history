@@ -24,24 +24,27 @@ async function updateBrowseCount() {
     }
 
     try {
-        // 刷新浏览量
-        await fetch(apiUrl);
+        for (let i=0; i<2; i++) {
 
-        const response = await fetch(apiUrl);
+            
+            // 获取浏览量
+            const response = await fetch(apiUrl);
 
-        if (!response.ok) {
-            throw new Error(`HTTP错误! 错误状态: ${response.status}`);
-        }
+            if (!response.ok) {
+                throw new Error(`HTTP错误! 错误状态: ${response.status}`);
+            }
 
-        const data = await response.json();
+            const data = await response.json();
+            
+            // 修正
+            const browseNum = data.data.browseNum - deviationValue;
+
+            // 设置成功状态样式（绿色）
+            counterElement.style.color = 'green';
+            counterElement.textContent = `${browseNum}`;
+
         
-        // 修正
-        const browseNum = data.data.browseNum - deviationValue;
-
-        // 设置成功状态样式（绿色）
-        counterElement.style.color = 'green';
-        counterElement.textContent = `${browseNum}`;
-
+}
     } catch (error) {
         console.error('获取浏览数失败：', error);
         
