@@ -2,8 +2,6 @@
 .hidden-title {
     position: relative !important; /* 改为相对定位 */
     height: 0 !important;
-    padding-top: 2.7rem !important;    /* 等于导航栏高度 */
-    margin-top: -2.7rem !important;    /* 负值抵消padding */
     visibility: hidden !important;
     overflow: hidden !important;
     pointer-events: none !important;
